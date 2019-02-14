@@ -10,17 +10,18 @@
 7. Finally `zappa deploy dev`
 
 
-***Misc***
-What does this do?
+***Misc***  
+What does this do?  
+
 Simple classification model to check serverless deployment. Takes the age and salary and will predict if the person will buy a car or not.
 
 I have two pickled files, one for the the StandardScaler and one for the Model.
 
 `POST` requests should be of the following:
 <code>
-  {
-	"feature_array":[9,2450]
-  }
+  {  
+	"feature_array":[9,2450]  
+  }  
   </code>
   
   where the first value is the age and the 2nd is the salary
