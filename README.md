@@ -1,6 +1,6 @@
 # Serverless Machine Learning
 
-1. Create a virtual-env `virtualenv environment_name` and `source environment_name/bin/activate`. 
+1. Create a virtual-env `virtualenv environment_name -p python3.6` (zappa doesn't support python3.7 yet) then `source environment_name/bin/activate`. 
 2. `pip install sklearn, numpy, flask, boto3, scipy, zappa`. 
 3. `zappa init`. 
 4. Take a look at `zappa_settings.json`. You app should reside in a directory called `api`  
@@ -30,5 +30,4 @@ I have two pickled files, one for the the StandardScaler and one for the Model.
   There is no error correction or handling of bad requests. This is for demo purposes only of how to deploy a Machine Learning model and use AWS Lambda for it.
 
   More info here: https://medium.com/@patrickmichelberger/how-to-deploy-a-serverless-machine-learning-microservice-with-aws-lambda-aws-api-gateway-and-d5b8cbead846
-  
   
