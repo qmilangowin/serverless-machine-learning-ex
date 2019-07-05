@@ -4,7 +4,7 @@ from flask import request, json
 import boto3
 import numpy as np
 
-BUCKET_NAME = 'YOUR-BUCKET-NAME'
+BUCKET_NAME = 'milan-gowin-machine-learning' #YOUR-BUCKET-NAME
 SCALER_FILE_NAME = 'scaling.pkl'
 MODEL_FILE_NAME = 'classifier.pkl'
 
@@ -27,26 +27,27 @@ def memoize(f):
 
 @app.route('/',methods=['POST'])
 def index():
+	try:
+		feature_array = request.get_json(silent=True)['feature_array']
 
-	feature_array = request.get_json(silent=True)['feature_array']
+		scaler = load_model(SCALER_FILE_NAME)
+		model = load_model(MODEL_FILE_NAME)
 
-	scaler = load_model(SCALER_FILE_NAME)
-	model = load_model(MODEL_FILE_NAME)
+		scaled = scaler(np.array([feature_array]))
+		prediction = model.predict(scaled)
 
-	scaled = scaler(np.array([feature_array]))
-	prediction = model.predict(scaled)
-	
-	if feature_array[0] > 120:
-		return "Be serious"
-	if prediction == 0:
-		return "No the person will not buy the car"
-	if prediction == 1:
-		return "Yes the person will buy the car"
+		print(feature_array)
+		# if feature_array == []:
+		# 	return "Incomplete Request: Please enter a body for your POST request."
+		if feature_array[0] > 100 or feature_array[0]<16:
+			return "Be serious"
+		if prediction == 0:
+			return "No the person will not buy the car"
+		if prediction == 1:
+			return "Yes the person will buy the car"
+	except ValueError:
+		print("POST Request Error")
 
-
-	else:
-		return "Error"
-		
 @app.route('/', methods=['GET'])
 def hello():
 
