@@ -13,7 +13,7 @@
 ***Misc***  
 What does this do?  
 
-Simple classification model to check serverless deployment. Takes the age and salary and will predict if the person will buy a car or not.
+Simple classification model to check serverless deployment. Takes the age and salary and will predict if the person will buy a car or not. Based on a Udemy course with some changes made by me. To be clear, this repo is not about doing ML but rather how to get your ML into a serverless environment and run predictions via a REST query.
 
 I have two pickled files, one for the the StandardScaler and one for the Model.
 
