@@ -31,6 +31,6 @@ I have two pickled files, one for the the StandardScaler and one for the Model.
 
   More info here: https://medium.com/@patrickmichelberger/how-to-deploy-a-serverless-machine-learning-microservice-with-aws-lambda-aws-api-gateway-and-d5b8cbead846
   
-You can try sending a `POST` request to the following endpoint that I have setup. See above for the JSON content to send in the `POST` request. This endpoint is a simple ML model running in AWS Lambda and will predict whether a person will purchase a car based on their salary and age:
+You can try sending a `POST` request to the following endpoint that I have setup. See above for the JSON content to send in the `POST` request. This endpoint is a simple ML model running in AWS Lambda and will predict whether a person will purchase a car based on their salary and age. Use Insomnia/Postman or CURL:
 
 https://3d8yngsqvh.execute-api.us-east-1.amazonaws.com/dev
